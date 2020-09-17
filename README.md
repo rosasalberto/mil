@@ -7,12 +7,19 @@ The mil library tries to achieve reproducible and productive research using the 
 
 - [Installation](#installation)
 - [Features](#features)
+- [Usage](#usage)
 - [Contributing](#contributing)
 - [To-do-list](#to-do-list)
 - [License](#license)
 
 ---
 ### Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install mil.
+
+```bash
+pip install mil
+```
 
 ### Features
 
@@ -30,6 +37,17 @@ The overall implementation tries to be as user-friendly as possible. That's why 
 
 #### bag_representation
 #### data
+
+**datasets**
+
+```python
+from mil.data.datasets import musk1
+
+(bags_train, y_train), (bags_test, y_test) = musk1.load()
+```
+
+mnist bags dataset.
+
 #### dimensionality_reduction
 #### metrics
 #### models
@@ -37,6 +55,12 @@ The overall implementation tries to be as user-friendly as possible. That's why 
 #### utils
 #### validators
 #### trainer
+
+### Usage
+
+```python
+
+```
 
 ### Contributing
 Pull requests are welcome. Priority things are on [To-do-list](#to-do-list). For major changes, please open an issue first to discuss what you would like to change.

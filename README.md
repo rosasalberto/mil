@@ -22,6 +22,7 @@
 - [ ] Implement other algorithms, such as the SVM based ones.
 - [ ] Make C++ extension of the APR algorithm to run faster.
 - [ ] Make C++ extension of the MILESMapping algorithm to run faster.
+- [ ] MILESMapping generates a simetric matrix of bag instance similarity, optimize it to only calculate half matrix and apply other possible optimizations to reduce time and space complexity.
 - [ ] Implement get_positive_instances for MILES model.
 - [ ] Implement hyperparameter tuner class.
 - [ ] Implement Callbacks for using on Trainer.

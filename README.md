@@ -1,5 +1,21 @@
 # Multiple Instance Learning (MIL) library for Python
 
+---
+
+## Table of Contents (Optional)
+
+- [Installation](#installation)
+- [Features](#features)
+- [Contributing](#contributing)
+- [Team](#team)
+- [FAQ](#faq)
+- [Support](#support)
+- [Pending tasks](#pendingtasks)
+- [License](#license)
+
+---
+
+### Features
 
 ### Pending tasks
 
@@ -11,3 +27,7 @@
 - [ ] Implement Callbacks for using on Trainer.
 - [ ] Add one cycle learning rate to use on optimizers of KerasClassifiers models.
 - [ ] On trainer, implement to get the best validation loss for calculating the metrics, right now when evaluating a model, the metrics are the ones from the last epoch.
+
+### License
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**

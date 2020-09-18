@@ -91,6 +91,12 @@ The classes implemented in the mil.bag_representation inherit from BagRepresenta
 - MaxBagRepresentation
 - MeanMinMaxBagRepresentation
 
+```python
+from mil.bag_representation import MILESMapping, DiscriminativeMapping, ArithmeticMeanBagRepresentation, \
+                                   MedianBagRepresentation, GeometricMeanBagRepresentation, MinBagRepresentation, \
+                                   MaxBagRepresentation, MeanMinMaxBagRepresentation
+```
+
 #### dimensionality_reduction
 A wrapper to sklearn.decomposition and sklearn.feature_selection.
 
@@ -100,7 +106,7 @@ from mil.dimensionality_reduction import PCA
 ```
 
 #### metrics
-Includes a manager to handle all the metrics, some custom metric and a wrapper of tensorflow.keras.metrics.
+Includes a manager to handle all the metrics, some custom metric and a wrapper of tensorflow.keras.metrics. Custom metrics have to inherit from Metrics base class and implement methods update_state, result, and reset_states.
 
 ```python
 # importing a custom metric

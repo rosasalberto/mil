@@ -23,7 +23,7 @@ pip install mil
 
 ### Features
 
-The overall implementation tries to be as user-friendly as possible. That's why most of it constructed on top of [sklearn](https://scikit-learn.org/) and [tensorflow.keras](tensorflow.org/api_docs/python/tf/keras).
+The overall implementation tries to be user-friendly as possible. That's why most of it constructed on top of [sklearn](https://scikit-learn.org/) and [tensorflow.keras](tensorflow.org/api_docs/python/tf/keras).
 
 - [mil.data](#data)
 - [mil.bag_representation](#bag_representation)
@@ -37,7 +37,24 @@ The overall implementation tries to be as user-friendly as possible. That's why 
 
 #### data
 Very well known datasets of the multiple instance learning framework have been added to the library. For each of the datasets a train and test split 
-has been done for reproducibility purposes. The API is designed similar to the tensorflow datasets in order to create and experiment in a fast and easy way.
+has been done for reproducibility purposes. The API is similar to the tensorflow datasets in order to create and experiment in a fast and easy way.
+
+```python
+# importing all the datasets modules
+from mil.data.datasets import musk1, musk2, protein, elephant, corel_dogs, \
+                              ucsb_breast_cancer, web_recommendation_1, birds_brown_creeper, \
+                              mnist_bags
+# load the musk1 dataset
+(bags_train, y_train), (bags_test, y_test) = musk1.load()
+```
+Also, the mnist_bags dataset has been created. The principal reason of creating this dataset is to have a good benchmark to evaluate the instances predictions. Or more specifically, if we can classify correctly a bag, can we detect which instance/s caused this classification? 
+In the mnist_bags dataset, there are 3 different types of problems with their own dataset.
+1) The bag 'b' is positive if the instance '7' is contained in 'b'
+2) The bag 'b' is positive if the instance '2' and '3' are contained in 'b'
+3) The bag 'b' is positive if the instance '4' and '2' are located in consecutive instances in 'b'
+
+
+
 
 #### bag_representation
 In multiple instance learning, bag representation is the technique that consists in obtaining a unique vector representing all the bag.
@@ -51,8 +68,6 @@ The classes implemented in the mil.bag_representation are used only for this fin
 - MinBagRepresentation
 - MaxBagRepresentation
 - MeanMinMaxBagRepresentation
-
-#### data
 
 **datasets**
 

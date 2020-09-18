@@ -52,14 +52,35 @@ In the mnist_bags dataset, there are 3 different types of problems with their ow
 
 1) The bag 'b' is positive if the instance '7' is contained in 'b' <br/>
 ![](imgs/mnist_bags.PNG)
+```python
+# importing all the datasets modules
+from mil.data.datasets import mnist_bags
+
+# load the mnist_bags
+(bags_train, y_train), (bags_test, y_test) = mnist_bags.load()
+```
 2) The bag 'b' is positive if the instance '2' and '3' are contained in 'b'  <br/>
 ![](imgs/mnist_bags_2_and_3.PNG)
+```python
+# importing all the datasets modules
+from mil.data.datasets import mnist_bags
+
+# load the mnist_bags 2 and 3
+(bags_train, y_train), (bags_test, y_test) = mnist_bags.load_2_and_3()
+```
 3) The bag 'b' is positive if the instance '4' and '2' are located in consecutive instances in 'b'  <br/>
 ![](imgs/mnist_bags_4_2.PNG)
+```python
+# importing all the datasets modules
+from mil.data.datasets import mnist_bags
+
+# load the mnist_bags 4 2
+(bags_train, y_train), (bags_test, y_test) = mnist_bags.load_42()
+```
 
 #### bag_representation
 In multiple instance learning, bag representation is the technique that consists in obtaining a unique vector representing all the bag.
-The classes implemented in the mil.bag_representation are used only for this finality.
+The classes implemented in the mil.bag_representation inherit from BagRepresentation base class which is a wrapper to sklearn transformer which have to implement fit and transform method.
 
 - MILESMapping
 - DiscriminativeMapping
@@ -70,18 +91,25 @@ The classes implemented in the mil.bag_representation are used only for this fin
 - MaxBagRepresentation
 - MeanMinMaxBagRepresentation
 
-**datasets**
+#### dimensionality_reduction
+A wrapper to sklearn.decomposition and sklearn.feature_selection.
 
 ```python
-from mil.data.datasets import musk1
-
-(bags_train, y_train), (bags_test, y_test) = musk1.load()
+# for example import sklearn PCA
+from mil.dimensionality_reduction import PCA
 ```
 
-mnist bags dataset.
-
-#### dimensionality_reduction
 #### metrics
+Includes a manager to handle all the metrics, some custom metric and a wrapper of tensorflow.keras.metrics.
+
+```python
+# importing a custom metric
+from mil.metrics import Specificity
+
+# importing a keras metric
+from mil.metrics import AUC
+```
+
 #### models
 #### preprocessing
 #### utils

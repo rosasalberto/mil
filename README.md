@@ -25,8 +25,8 @@ pip install mil
 
 The overall implementation tries to be as user-friendly as possible. That's why most of it constructed on top of [sklearn](https://scikit-learn.org/) and [tensorflow.keras](tensorflow.org/api_docs/python/tf/keras).
 
-- [mil.bag_representation](#bag_representation)
 - [mil.data](#data)
+- [mil.bag_representation](#bag_representation)
 - [mil.dimensionality_reduction](#dimensionality_reduction)
 - [mil.metrics](#metrics)
 - [mil.models](#models)
@@ -35,7 +35,23 @@ The overall implementation tries to be as user-friendly as possible. That's why 
 - [mil.validators](#validators)
 - [mil.trainer](#trainer)
 
+#### data
+Very well known datasets of the multiple instance learning framework have been added to the library. For each of the datasets a train and test split 
+has been done for reproducibility purposes. The API is designed similar to the tensorflow datasets in order to create and experiment in a fast and easy way.
+
 #### bag_representation
+In multiple instance learning, bag representation is the technique that consists in obtaining a unique vector representing all the bag.
+The classes implemented in the mil.bag_representation are used only for this finality.
+
+- MILESMapping
+- DiscriminativeMapping
+- ArithmeticMeanBagRepresentation
+- MedianBagRepresentation
+- GeometricMeanBagRepresentation
+- MinBagRepresentation
+- MaxBagRepresentation
+- MeanMinMaxBagRepresentation
+
 #### data
 
 **datasets**
@@ -69,8 +85,8 @@ Please make sure to update tests as appropriate.
 ### To-do-list
 Pending tasks to do:
 - [ ] Implement other algorithms, such as the SVM based ones.
-- [ ] Make C++ extension of the APR algorithm to run faster.
-- [ ] Make C++ extension of the MILESMapping algorithm to run faster.
+- [ ] Make C/C++ extension of the APR algorithm to run faster.
+- [ ] Make C/C++ extension of the MILESMapping algorithm to run faster.
 - [ ] MILESMapping generates a simetric matrix of bag instance similarity, optimize it to only calculate half matrix and apply other possible optimizations to reduce time and space complexity.
 - [ ] Implement get_positive_instances for MILES model.
 - [ ] Implement Tuner class for hyperparameter tuning.

@@ -49,12 +49,13 @@ from mil.data.datasets import musk1, musk2, protein, elephant, corel_dogs, \
 ```
 Also, the mnist_bags dataset has been created. The principal reason of creating this dataset is to have a good benchmark to evaluate the instances predictions. Or more specifically, if we can classify correctly a bag, can we detect which instance/s caused this classification? 
 In the mnist_bags dataset, there are 3 different types of problems with their own dataset.
-1) The bag 'b' is positive if the instance '7' is contained in 'b'
-2) The bag 'b' is positive if the instance '2' and '3' are contained in 'b'
-3) The bag 'b' is positive if the instance '4' and '2' are located in consecutive instances in 'b'
 
-
-
+1) The bag 'b' is positive if the instance '7' is contained in 'b' <br/>
+![mnist_bags](imgs/mnist_bags.png)
+2) The bag 'b' is positive if the instance '2' and '3' are contained in 'b'  <br/>
+![mnist_bags_2_and_3](imgs/mnist_bags_2_and_3.png)
+3) The bag 'b' is positive if the instance '4' and '2' are located in consecutive instances in 'b'  <br/>
+![mnist_bags_4_2](imgs/mnist_bags_4_2.png)
 
 #### bag_representation
 In multiple instance learning, bag representation is the technique that consists in obtaining a unique vector representing all the bag.

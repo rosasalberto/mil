@@ -51,11 +51,11 @@ Also, the mnist_bags dataset has been created. The principal reason of creating 
 In the mnist_bags dataset, there are 3 different types of problems with their own dataset.
 
 1) The bag 'b' is positive if the instance '7' is contained in 'b' <br/>
-![mnist_bags](imgs/mnist_bags.png)
+![](imgs/mnist_bags.PNG)
 2) The bag 'b' is positive if the instance '2' and '3' are contained in 'b'  <br/>
-![mnist_bags_2_and_3](imgs/mnist_bags_2_and_3.png)
+![](imgs/mnist_bags_2_and_3.PNG)
 3) The bag 'b' is positive if the instance '4' and '2' are located in consecutive instances in 'b'  <br/>
-![mnist_bags_4_2](imgs/mnist_bags_4_2.png)
+![](imgs/mnist_bags_4_2.PNG)
 
 #### bag_representation
 In multiple instance learning, bag representation is the technique that consists in obtaining a unique vector representing all the bag.

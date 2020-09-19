@@ -1,6 +1,6 @@
 # mil: multiple instance learning library for Python
 
-When working on a research problem, I found myself with the [multiple instance learning (MIL)](https://en.wikipedia.org/wiki/Multiple_instance_learning) framework, which I found quite interesting and unique. After carefully reviewing the literature, I decided to try few of the algorithms on the problem I was working on, but for my surprise, there was no standard, easy, and updated MIL library for any programming language. So... here we are. <br/>
+When working on a research problem, I found myself with the [multiple instance learning (MIL)](https://en.wikipedia.org/wiki/Multiple_instance_learning) framework, which I found quite interesting and unique. After carefully reviewing the literature, I decided to try few of the algorithms on the problem I was working on, but surprisingly, there was no standard, easy, and updated MIL library for any programming language. So... here we are. <br/>
 The mil library tries to achieve reproducible and productive research using the MIL framework.
 
 ---
@@ -37,7 +37,7 @@ So install them with the package manager manually if not already downloaded.
 
 ### Features
 
-The overall implementation tries to be user-friendly as possible. That's why most of it constructed on top of [sklearn](https://scikit-learn.org/) and [tensorflow.keras](tensorflow.org/api_docs/python/tf/keras).
+The overall implementation tries to be as much user-friendly as possible. That's why most of it is constructed on top of [sklearn](https://scikit-learn.org/) and [tensorflow.keras](tensorflow.org/api_docs/python/tf/keras).
 
 - [mil.data](#data)
 - [mil.bag_representation](#bag_representation)
@@ -51,7 +51,7 @@ The overall implementation tries to be user-friendly as possible. That's why mos
 
 #### data
 Very well known datasets of the multiple instance learning framework have been added to the library. For each of the datasets a train and test split 
-has been done for reproducibility purposes. The API is similar to the tensorflow datasets in order to create and experiment in a fast and easy way.
+have been done for reproducibility purposes. The API is similar to the tensorflow datasets in order to create and experiment in a fast and easy way.
 
 ```python
 # importing all the datasets modules
@@ -61,7 +61,7 @@ from mil.data.datasets import musk1, musk2, protein, elephant, corel_dogs, \
 # load the musk1 dataset
 (bags_train, y_train), (bags_test, y_test) = musk1.load()
 ```
-Also, the mnist_bags dataset has been created. The principal reason of creating this dataset is to have a good benchmark to evaluate the instances predictions. Or more specifically, if we can classify correctly a bag, can we detect which instance/s caused this classification? 
+Also, the mnist_bags dataset has been created. The main reason of creating this dataset is to have a good benchmark to evaluate the instances predictions. To be more specific, if we can classify correctly a bag, can we detect which instance/s caused this classification? 
 In the mnist_bags dataset, there are 3 different types of problems with their own dataset.
 https://drive.google.com/drive/folders/1_F9qAIrOUQBPTBwSQrIrn0ZzBSkMBfrK?usp=sharing
 
@@ -147,7 +147,7 @@ from mil.models import RandomForestClassifier, SVC
 It is also a wrapper to sklearn.svm, sklearn.ensemble, sklearn.linear_model, and sklearn.neighbors.
 
 #### preprocessing
-It contains few transformers to normalize and standarize bags of type list, and is also a wrapper to sklearn.preprocessing.
+It contains few transformers to normalize and standardize bags of type list, and is also a wrapper to sklearn.preprocessing.
 
 ```python
 # standarize bags of lists
@@ -178,16 +178,16 @@ It has 4 principal methods.
 
 1) prepare(model, preprocess_pipeline=[], metrics=[]). <br/>
 Which is kind of what 'compile' method is for keras models. What it does is preparing the training and evaluation routine.
-The 'model' parameter accepts any of the mil.models objects. The 'preprocess_pipeline' parameter is a list containing all the transforming operations we wish to do before inputing the data into the 'model' object, basically accepts any sklearn transformer. The 'metrics' accepts some strings of typical metrics, or the callables modules from the metrics.<br/>
+The 'model' parameter accepts any of the mil.models objects. The 'preprocess_pipeline' parameter is a list containing all the transforming operations we wish to do before inputing the data into the 'model' object. It basically accepts any sklearn transformer. The 'metrics' takes some strings of typical metrics, or the callables modules from the metrics.<br/>
 
 2) fit(X_train, y_train, X_val=None, y_val=None, groups=None, validation_strategy=None, sample_weights=None, verbose=1) <br/>
-Which is the method to train the model. It also handles a sample_weights parameters and mil.validators objects or custom validations splits. <br/>
+This is the method to train the model. It also handles a sample_weights parameters and mil.validators objects and custom validations splits. <br/>
 
 3) predict(X_train, y_train, X_val=None, y_val=None, groups=None, validation_strategy=None, sample_weights=None, verbose=1) <br/>
-Which is the method to train the model. It also handles a sample_weights parameters and mil.validators objects or custom validations splits. <br/>
+This method is used to get the predictions of the model. <br/>
 
 4) get_positive_instances(X) <br/>
-For the models who have implemented this method, it returns the result. <br/>
+Whenever the model has implemented the method it returns the positive instances from the bags. <br/>
 
 ---
 
@@ -239,7 +239,7 @@ For more examples, check examples subdirectory.
 
 ### Contributing
 Pull requests are welcome. Priority things are on [To-do-list](#to-do-list). For major changes, please open an issue first to discuss what you would like to change.
-Please make sure to update tests as appropriate.
+Also, please make sure to update tests when appropriate.
 
 ---
 
@@ -248,12 +248,12 @@ Pending tasks to do:
 - [ ] Implement other algorithms, such as the SVM based ones.
 - [ ] Make C/C++ extension of the APR algorithm to run faster.
 - [ ] Make C/C++ extension of the MILESMapping algorithm to run faster.
-- [ ] MILESMapping generates a simetric matrix of bag instance similarity, optimize it to only calculate half matrix and apply other possible optimizations to reduce time and space complexity.
+- [ ] MILESMapping generates a symmetric matrix of bag instance similarity, optimize it to calculate only half matrix and apply other possible optimizations to reduce time and space complexity.
 - [ ] Implement get_positive_instances for MILES model.
 - [ ] Implement Tuner class for hyperparameter tuning.
 - [ ] Implement Callbacks for using on Trainer.
-- [ ] Add one cycle learning rate to use on optimizers of KerasClassifiers models.
-- [ ] On trainer, implement to get the best validation loss for calculating the metrics, right now when evaluating a KerasClassifier model, the metrics are the ones from the last epoch.
+- [ ] Add one cycle learning rate to use it on optimizers of KerasClassifiers models.
+- [ ] For the Trainer class, implement to get the best validation loss for calculating the metrics, right now when evaluating a KerasClassifier model, the metrics are the ones from the last epoch.
 
 ### License
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)

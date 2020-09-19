@@ -1,7 +1,9 @@
 # mil: multiple instance learning library for Python
----
+
 When working on a research problem, I found myself with the [multiple instance learning (MIL)](https://en.wikipedia.org/wiki/Multiple_instance_learning) framework, which I found quite interesting and unique. After carefully reviewing the literature, I decided to try few of the algorithms on the problem I was working on, but for my surprise, there was no standard, easy, and updated MIL library for any programming language. So... here we are. <br/>
 The mil library tries to achieve reproducible and productive research using the MIL framework.
+
+---
 
 ## Table of Contents
 
@@ -13,6 +15,7 @@ The mil library tries to achieve reproducible and productive research using the 
 - [License](#license)
 
 ---
+
 ### Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install mil.
@@ -20,6 +23,8 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install mil.
 ```bash
 pip install mil
 ```
+
+---
 
 ### Features
 
@@ -96,6 +101,8 @@ from mil.bag_representation import MILESMapping, DiscriminativeMapping, Arithmet
                                    MedianBagRepresentation, GeometricMeanBagRepresentation, MinBagRepresentation, \
                                    MaxBagRepresentation, MeanMinMaxBagRepresentation
 ```
+
+---
 
 #### dimensionality_reduction
 A wrapper to sklearn.decomposition and sklearn.feature_selection.
@@ -174,6 +181,8 @@ Which is the method to train the model. It also handles a sample_weights paramet
 4) get_positive_instances(X) <br/>
 For the models who have implemented this method, it returns the result. <br/>
 
+---
+
 ### Usage
 
 ```python
@@ -218,9 +227,13 @@ trainer.predict_metrics(bags_test, y_test)
 
 For more examples, check examples subdirectory.
 
+---
+
 ### Contributing
 Pull requests are welcome. Priority things are on [To-do-list](#to-do-list). For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
+
+---
 
 ### To-do-list
 Pending tasks to do:

@@ -63,6 +63,7 @@ from mil.data.datasets import musk1, musk2, protein, elephant, corel_dogs, \
 ```
 Also, the mnist_bags dataset has been created. The principal reason of creating this dataset is to have a good benchmark to evaluate the instances predictions. Or more specifically, if we can classify correctly a bag, can we detect which instance/s caused this classification? 
 In the mnist_bags dataset, there are 3 different types of problems with their own dataset.
+https://drive.google.com/drive/folders/1_F9qAIrOUQBPTBwSQrIrn0ZzBSkMBfrK?usp=sharing
 
 1) The bag 'b' is positive if the instance '7' is contained in 'b' <br/>
 ![](imgs/mnist_bags.PNG)

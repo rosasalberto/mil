@@ -21,8 +21,17 @@ The mil library tries to achieve reproducible and productive research using the 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install mil.
 
 ```bash
-pip install mil
+$ pip install mil
 ```
+#### Requirements
+The requirement packages for mil library are: numpy, scikit-learn, scipy, tensorflow or tensorflow-gpu.
+Installing mil with the package manager does not install the package dependencies.
+So install them with the package manager manually if not already downloaded.
+
+    $ pip install numpy
+    $ pip install scikit-learn
+    $ pip install scipy
+    $ pip install tensorflow
 
 ---
 

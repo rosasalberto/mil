@@ -117,16 +117,89 @@ from mil.metrics import AUC
 ```
 
 #### models
+It contains all the end-to-end models. All the models implement a sklearn-like structure with fit, predict, and sometimes get_positive_instances when the method allows it.
+- MILES
+- APR
+- AttentionDeepPoolingMil
+
+```python
+# importing mil models
+from mil.models import APR, AttentionDeepPoolingMil, MILES
+
+# importing sklearn models
+from mil.models import RandomForestClassifier, SVC
+```
+It is also a wrapper to sklearn.svm, sklearn.ensemble, sklearn.linear_model, and sklearn.neighbors.
+
 #### preprocessing
+It contains few transformers to normalize and standarize bags of type list, and is also a wrapper to sklearn.preprocessing.
+
 #### utils
+It contains few utility functions, such as bags2instances, padding, progress bar ...
+
 #### validators
+A wrapper to sklearn.model_selection. Includes all the validation strategies to be used in the training process.
+
 #### trainer
+It is the central part of the library, it allows to train, and evaluate models in a very simple and intuitive way.
+It has 4 principal methods.
+
+1) prepare(model, preprocess_pipeline=[], metrics=[]). <br/>
+Which is kind of what 'compile' method is for keras models. What it does is preparing the training and evaluation routine.
+The 'model' parameter accepts any of the mil.models objects. The 'preprocess_pipeline' parameter is a list containing all the transforming operations we wish to do before inputing the data into the 'model' object, basically accepts any sklearn transformer. The 'metrics' accepts some strings of typical metrics, or the callables modules from the metrics.<br/>
+
+2) fit(X_train, y_train, X_val=None, y_val=None, groups=None, validation_strategy=None, sample_weights=None, verbose=1) <br/>
+Which is the method to train the model. It also handles a sample_weights parameters and mil.validators objects or custom validations splits. <br/>
+
+3) predict(X_train, y_train, X_val=None, y_val=None, groups=None, validation_strategy=None, sample_weights=None, verbose=1) <br/>
+Which is the method to train the model. It also handles a sample_weights parameters and mil.validators objects or custom validations splits. <br/>
+
+4) get_positive_instances(X) <br/>
+For the models who have implemented this method, it returns the result. <br/>
 
 ### Usage
 
 ```python
+# importing dataset
+from mil.data.datasets import musk1
+# importing bag_representation
+from mil.bag_representation import MILESMapping
+# importing validation strategy
+from mil.validators import LeaveOneOut
+# importing final model, which in this case is the SVC classifier from sklearn
+from mil.models import SVC
+# importing trainer
+from mil.trainer import Trainer
+# importing preprocessing 
+from mil.preprocessing import StandarizerBagsList
+# importing metrics, which in this case are from tf keras metrics
+from mil.metrics import AUC
+
+# loading dataset
+(bags_train, y_train), (bags_test, y_test) = musk1.load()
+
+# instantiate trainer
+trainer = Trainer()
+
+# preparing trainer
+metrics = ['acc', AUC]
+model = SVC(kernel='linear', C=1, class_weight='balanced')
+pipeline = [('scale', StandarizerBagsList()), ('disc_mapping', MILESMapping())]
+trainer.prepare(model, preprocess_pipeline=pipeline ,metrics=metrics)
+
+# fitting trainer
+valid = LeaveOneOut()
+history = trainer.fit(bags_train, y_train, sample_weights='balanced', validation_strategy=valid, verbose=1)
+
+# printing validation results for each fold
+print(history['metrics_val'])
+
+# predicting metrics for the test set
+trainer.predict_metrics(bags_test, y_test)
 
 ```
+
+For more examples, check examples subdirectory.
 
 ### Contributing
 Pull requests are welcome. Priority things are on [To-do-list](#to-do-list). For major changes, please open an issue first to discuss what you would like to change.

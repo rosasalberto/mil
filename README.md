@@ -111,8 +111,6 @@ from mil.bag_representation import MILESMapping, DiscriminativeMapping, Arithmet
                                    MaxBagRepresentation, MeanMinMaxBagRepresentation
 ```
 
----
-
 #### dimensionality_reduction
 A wrapper to sklearn.decomposition and sklearn.feature_selection.
 

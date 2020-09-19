@@ -134,11 +134,28 @@ It is also a wrapper to sklearn.svm, sklearn.ensemble, sklearn.linear_model, and
 #### preprocessing
 It contains few transformers to normalize and standarize bags of type list, and is also a wrapper to sklearn.preprocessing.
 
+```python
+# standarize bags of lists
+from mil.preprocessing import StandarizerBagsList
+```
+
 #### utils
 It contains few utility functions, such as bags2instances, padding, progress bar ...
 
+```python
+# for example importing bags2instances function
+from mil.utils.utils import bags2instances
+```
+
 #### validators
 A wrapper to sklearn.model_selection. Includes all the validation strategies to be used in the training process.
+
+```python
+# for example importing sklearn KFold
+from mil.validators import KFold
+
+valid = KFold(n_splits=10, shuffle=True)
+```
 
 #### trainer
 It is the central part of the library, it allows to train, and evaluate models in a very simple and intuitive way.

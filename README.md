@@ -232,7 +232,7 @@ Pending tasks to do:
 - [ ] Implement Tuner class for hyperparameter tuning.
 - [ ] Implement Callbacks for using on Trainer.
 - [ ] Add one cycle learning rate to use on optimizers of KerasClassifiers models.
-- [ ] On trainer, implement to get the best validation loss for calculating the metrics, right now when evaluating a model, the metrics are the ones from the last epoch.
+- [ ] On trainer, implement to get the best validation loss for calculating the metrics, right now when evaluating a KerasClassifier model, the metrics are the ones from the last epoch.
 
 ### License
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)

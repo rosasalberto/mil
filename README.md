@@ -250,6 +250,8 @@ Pending tasks to do:
 - [ ] Make C/C++ extension of the MILESMapping algorithm to run faster.
 - [ ] MILESMapping generates a symmetric matrix of bag instance similarity, optimize it to calculate only half matrix and apply other possible optimizations to reduce time and space complexity.
 - [ ] Implement get_positive_instances for MILES model.
+- [ ] Implement logging and replace print functions calls.
+- [ ] Add parallelization for Trainer, for example in the validation folds.
 - [ ] Implement Tuner class for hyperparameter tuning.
 - [ ] Implement Callbacks for using on Trainer.
 - [ ] Add one cycle learning rate to use it on optimizers of KerasClassifiers models.

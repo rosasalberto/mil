@@ -116,6 +116,10 @@ class Trainer:
                 # splits
                 X_train, X_val, y_train, y_val = self.__split_data(X, y, train_index, val_index)
                 
+                # reset metrics
+                self.metrics_train.reset_states()
+                self.metrics_val.reset_states()
+                
                 # eval splits
                 self.__eval_training_data(X_train, y_train, **kwargs)
                 self.__eval_validation_data(X_val, y_val)
